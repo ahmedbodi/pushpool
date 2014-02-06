@@ -17,6 +17,7 @@ static void keccakhash(void *state, const void *input)
 	memcpy(state, hash, 32);
 }
 
+
 int scanhash_keccak(int thr_id, uint32_t *pdata, const uint32_t *ptarget,
 	uint32_t max_nonce, unsigned long *hashes_done)
 {
@@ -43,9 +44,9 @@ int scanhash_keccak(int thr_id, uint32_t *pdata, const uint32_t *ptarget,
             *hashes_done = n - first_nonce + 1;
 			return true;
 		}
-	} while (n < max_nonce /*&& !work_restart[thr_id].restart */);
+	} while (n < max_nonce /*&& !work_restart[thr_id].restart */ );
 	
 	*hashes_done = n - first_nonce + 1;
-	pdata[19] = n;
-	return 0;
+	pdata[19] = n; */
+	return 1;
 } 
