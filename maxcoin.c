@@ -1,6 +1,5 @@
 #include "cpuminer-config.h"
-#include "miner.h"
-
+/* #include "miner.h" */
 #include <string.h>
 #include <stdint.h>
 
