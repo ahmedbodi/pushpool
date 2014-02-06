@@ -373,7 +373,7 @@ static int check_hash(const char *remote_host, const char *auth_user,
 	SHA256(data, 80, hash1);
 	SHA256(hash1, SHA256_DIGEST_LENGTH, hash);
 #else
-	scanhash_keccak(data, hash)
+	scanhash_keccak(data, hash);
 	/* scrypt_1024_1_1_256(data, hash); */
 #endif
 
