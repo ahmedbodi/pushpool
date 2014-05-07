@@ -30,7 +30,7 @@
 #include <openssl/sha.h>
 #include <syslog.h>
 #include "server.h"
-#include "scrypt.h"
+#include "groestl.h"
 
 struct worker {
 	char			username[64 + 1];
@@ -373,7 +373,7 @@ static int check_hash(const char *remote_host, const char *auth_user,
 	SHA256(data, 80, hash1);
 	SHA256(hash1, SHA256_DIGEST_LENGTH, hash);
 #else
-	scrypt_1024_1_1_256(data, hash);
+	groestlcoin_hash(data, hash, 32);
 #endif
 
 	if (srv.easy_target) {
